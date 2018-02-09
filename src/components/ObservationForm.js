@@ -19,7 +19,14 @@ class ObservationForm extends React.Component {
               placeholder="Temperature"
             />
           </div>
-          <button onClick={() => this.add(this.state.input)}>Add</button>
+          <button
+            onClick={() => {
+              this.add(this.state.input, this.props.location)
+              this.props.toggle()
+            }}
+          >
+            Add
+          </button>
           <button onClick={this.props.toggle}>Close</button>
         </div>
       </div>
@@ -31,10 +38,10 @@ class ObservationForm extends React.Component {
   }
   add = (temp, location) => {
     console.log('Adding')
+    console.log(location)
     let newObs = {
       location: location,
-      temperature: temp,
-      Date: new Date()
+      temperature: Number(temp)
     }
     Api.addObservation(newObs)
   }
