@@ -1,0 +1,1 @@
+GET https://7b1e3ny5yg.execute-api.eu-west-1.amazonaws.com/dev/api/observations
