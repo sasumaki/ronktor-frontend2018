@@ -12,7 +12,7 @@ class ObservationForm extends React.Component {
     return (
       <div className="popup">
         <div className="popup_inner">
-          <h1>Form</h1>
+          <h2>Add observation</h2> <h1>{this.props.location}</h1>
           <div>
             <input
               onChange={event => this.input(event)}
@@ -21,7 +21,12 @@ class ObservationForm extends React.Component {
           </div>
           <button
             onClick={() => {
-              this.add(this.state.input, this.props.location)
+              this.add(
+                this.state.input,
+                this.props.location,
+                this.props.func,
+                this.props.snackbar
+              )
               this.props.toggle()
             }}
           >
@@ -34,16 +39,36 @@ class ObservationForm extends React.Component {
   }
 
   input = event => {
+    event.preventDefault()
     this.setState({ input: event.target.value })
   }
-  add = (temp, location) => {
+  add = (temp, location, refresh, snackbar) => {
     console.log('Adding')
     console.log(location)
     let newObs = {
       location: location,
-      temperature: Number(temp)
+      temperature: temp
     }
     Api.addObservation(newObs)
+      .then(result => {
+        console.log(result)
+        snackbar('Added!')
+        this.showSnack()
+        refresh()
+      })
+      .catch(error => {
+        snackbar('Impossible temperature!')
+        this.showSnack()
+      })
+  }
+  showSnack = () => {
+    var x = document.getElementById('snackbar')
+
+    x.className = 'show'
+
+    setTimeout(function() {
+      x.className = x.className.replace('show', '')
+    }, 3000)
   }
 }
 

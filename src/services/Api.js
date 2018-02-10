@@ -14,8 +14,8 @@ const getObservations = () => {
 const addObservation = newObs => {
   const request = axios.post(`${entrypoint}/api/observations`, newObs)
   return request.then(response => {
-    response.data
-    console.log(response.data)
+    console.log(response)
+    return response
   })
 }
 

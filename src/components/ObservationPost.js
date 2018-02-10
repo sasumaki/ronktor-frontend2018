@@ -1,17 +1,37 @@
 import React from 'react'
+import '../App.css'
+
 const ObservationPost = props => {
+  if (props.location.obs[0] === undefined) {
+    return (
+      <div>
+        <h2>{props.location.name}</h2>
+        <button
+          className="button1"
+          onClick={() => props.toggle(props.data.name)}
+        >
+          New Observation
+        </button>
+      </div>
+    )
+  }
   return (
-    <div>
-      <h2>{props.location[1][0].location}</h2>
-      <Observation data={props.location[1]} toggle={props.toggle} />
+    <div className="card">
+      <h2>{props.location.name}</h2>
+      <button onClick={() => props.togglelist(props.location.name)}>
+        Show all
+      </button>
+      <Observation data={props.location} toggle={props.toggle} />
     </div>
   )
 }
 const Observation = props => {
   return (
-    <div>
-      <p>Temperature: {props.data[0].temperature} °C</p>
-      <button onClick={() => props.toggle(props.data[0].location)}>
+    <div className="container">
+      <p>latest: {props.data.obs[0].temperature} °C</p>
+      <p>max: {props.data.max} °C</p>
+      <p>min: {props.data.min} °C</p>
+      <button className="button1" onClick={() => props.toggle(props.data.name)}>
         New Observation
       </button>
     </div>
