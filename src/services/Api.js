@@ -6,7 +6,6 @@ const entrypoint =
   process.env.NODE_ENV === 'production' ? url : 'http://localhost:3000'
 
 const getObservations = () => {
-  console.log('Getting observations from ' + entrypoint)
   return axios
     .get(`${entrypoint}/api/observations`)
     .then(response => response.data)
@@ -14,7 +13,6 @@ const getObservations = () => {
 const addObservation = newObs => {
   const request = axios.post(`${entrypoint}/api/observations`, newObs)
   return request.then(response => {
-    console.log(response)
     return response
   })
 }

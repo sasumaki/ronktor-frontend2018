@@ -63,11 +63,9 @@ class App extends React.Component {
   }
   toggleForm = location => {
     this.setState({ form: !this.state.form, activeFormLocation: location })
-    console.log('Observation form toggled ' + this.state.form)
   }
   editSnackbar = text => {
     this.setState({ snackbartext: text })
-    console.log(this.state.snackbartext)
   }
 
   render() {

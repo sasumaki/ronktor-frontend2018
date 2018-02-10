@@ -1,13 +1,9 @@
 import React from 'react'
 import '../App.css'
 const ObservationList = props => {
-  console.log(props.location)
-
   let observationsToShow = props.observations.filter(location => {
-    console.log(location.name)
     return location.name === props.location
   })
-  console.log(observationsToShow)
   return (
     <div className="popup">
       <div className="popup_inner2">
@@ -25,7 +21,6 @@ const ObservationList = props => {
                 <td>Date</td>
               </tr>
               {observationsToShow[0].obs.map(obs => {
-                console.log(obs)
                 return (
                   <tr key={obs.id}>
                     <td> {obs.temperature} °C </td>

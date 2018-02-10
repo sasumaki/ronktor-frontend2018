@@ -43,15 +43,12 @@ class ObservationForm extends React.Component {
     this.setState({ input: event.target.value })
   }
   add = (temp, location, refresh, snackbar) => {
-    console.log('Adding')
-    console.log(location)
     let newObs = {
       location: location,
       temperature: temp
     }
     Api.addObservation(newObs)
       .then(result => {
-        console.log(result)
         snackbar('Added!')
         this.showSnack()
         refresh()
