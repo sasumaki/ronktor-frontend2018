@@ -2,7 +2,7 @@
 
 Built using [React](https://reactjs.org/) as a Single-Page Application [(SPA)](https://en.wikipedia.org/wiki/Single-page_application).
 
-Hosted in NA and EU Regions on [AWS CloudFront.](aws.amazon.com/cloudfront)
+Hosted in NA and EU Regions on [AWS CloudFront.](https://aws.amazon.com/cloudfront)
 
 ### [Click here to try the Application!](https://d223eau4kh7qhj.cloudfront.net)
 
