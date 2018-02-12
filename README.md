@@ -6,4 +6,4 @@ Hosted in NA and EU Regions on [AWS CloudFront.](aws.amazon.com/cloudfront)
 
 ### [Click here to try the Application!](https://d223eau4kh7qhj.cloudfront.net)
 
-Read further information on [backend repository.](../ronktor-backend2018)
+Read further information on [backend repository.](https://github.com/sasumaki/ronktor-backend2018)
